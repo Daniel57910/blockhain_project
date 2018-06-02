@@ -16,13 +16,9 @@ app.get('/', function (req, res) {
 });
 
 app.post('/info', function(req, res){
-  console.log(req.param('prescription'));
-  console.log(req.param('patientNames'));
-  console.log(req.param('doctorName'));
+
   let newBlock = new Block.Block(req.param('patientNames'), req.param('doctorName'), req.param('prescription'));
-  console.log(newBlock);
   chain.addBlock(newBlock);
-  console.log(chain);
 });
 
 app.listen(9000, () => console.log('Pharmacy app listening on port 9000'));
