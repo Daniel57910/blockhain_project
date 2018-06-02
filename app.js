@@ -8,6 +8,13 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 var env = process.env.NODE_ENV || "test";
+var mongoose = require('mongoose');
+console.log(databaseSetup());
+
+
+function databaseSetup() {
+  return env === "test" ? 'mongodb://localhost:9000/blockchain_test' : 'mongodb://localhost:9000/blockchain_production';
+};
 
 
 app.use(express.static(path.join(__dirname, 'public')));
