@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var Block = require('./controllers/block.js');
-var Chain = require("./controllers/blockChain.js");
+var Block = require('./lib/block.js');
+var Chain = require("./lib/blockChain.js");
 var bodyParser = require('body-parser');
 var env = process.env.NODE_ENV || "test";
 var mongoose = require('mongoose');
