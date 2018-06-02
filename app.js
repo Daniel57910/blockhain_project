@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
+var env = process.env.NODE_ENV;
+console.log(env);
+
 app.use(express.static(path.join(__dirname, 'public')));
 var chain = new Chain.Chain();
 
