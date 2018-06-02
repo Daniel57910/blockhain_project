@@ -9,11 +9,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 var env = process.env.NODE_ENV || "test";
 var mongoose = require('mongoose');
-console.log(databaseSetup());
+mongoose.connect(databaseSetup());
+console.log(mongoose);
 
 
 function databaseSetup() {
-  return env === "test" ? 'mongodb://localhost:9000/blockchain_test' : 'mongodb://localhost:9000/blockchain_production';
+  return env === "test" ? 'mongodb://localhost:27017/blockchain_test' : 'mongodb://localhost:27017/blockchain_production';
 };
 
 
