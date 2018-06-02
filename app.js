@@ -5,13 +5,10 @@ var Block = require('./controllers/block.js');
 var Chain = require("./controllers/blockChain.js");
 var bodyParser = require('body-parser');
 var env = process.env.NODE_ENV || "test";
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended: true}));
-
 var mongoose = require('mongoose');
 mongoose.connect(databaseSetup());
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 function databaseSetup() {
   return env === "test" ? 'mongodb://localhost:27017/blockchain_test' : 'mongodb://localhost:27017/blockchain_production';
