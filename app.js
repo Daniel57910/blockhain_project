@@ -8,14 +8,34 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 var env = process.env.NODE_ENV || "test";
+
 var mongoose = require('mongoose');
 mongoose.connect(databaseSetup());
-console.log(mongoose);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    console.log('connected');
+});
+
+var doctorSchema = mongoose.Schema({
+  doctorName: String,
+  doctorID: String,
+  doctorPass: String
+});
+
+var Doctor = mongoose.model("Doctor", doctorSchema);
+console.log(Doctor);
+savedDoctor = new Doctor({doctorName: 'Robbie', doctorID: '12345', doctorPass: 'abc123'});
+console.log(savedDoctor);
+savedDoctor.save(function(err, res) {
+  if (err) return "ERROR";
+  console.log("saved");
+});
 
 
 function databaseSetup() {
   return env === "test" ? 'mongodb://localhost:27017/blockchain_test' : 'mongodb://localhost:27017/blockchain_production';
-};
+}
 
 
 app.use(express.static(path.join(__dirname, 'public')));
