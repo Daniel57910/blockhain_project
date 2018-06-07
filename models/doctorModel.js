@@ -28,7 +28,7 @@ doctorSchema.statics.authenticate = function (fullName, password, callback) {
   doctor.findOne({ fullName: fullName })
   .exec(function (err, doctor) {
     if (err) {
-      return callback(err)
+      return callback(err);
     } else if (!doctor) {
       var err = new Error('Doctor not found. ');
       return callback(err);
@@ -39,9 +39,9 @@ doctorSchema.statics.authenticate = function (fullName, password, callback) {
       } else {
         return callback();
       }
-    })
+    });
   });
-}
+};
 
 doctorSchema.pre('save', function(next){
   var doc = this;
