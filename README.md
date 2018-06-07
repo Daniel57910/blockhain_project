@@ -45,6 +45,7 @@ Technologies
 * JavaScript
 * Express
 * Jasmine
+* Cypress
 * Node.js
 * Crypto-js
 * Heroku for deployment
@@ -56,4 +57,4 @@ Run project
 * Install Node.js (if you haven't already)
 * Run ```npm install``` to install all the dependencies
 * For testing, run ```npm test```
-* Run ```node app.js``` to serve the application, go to ```localhost:9000``` in your browser
+* Run ```node server.js``` to serve the application, go to ```localhost:9000``` in your browser
