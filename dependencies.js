@@ -16,6 +16,10 @@ class Dependencies {
 
 function databaseSetup(env) {
   return env === "test" ? 'mongodb://localhost:27017/blockchain_test' : 'mongodb://localhost:27017/blockchain_production';
+  var DatabaseCleaner = require('database-cleaner');
+  var databaseCleaner = new DatabaseCleaner(type); //type = 'mongodb|redis|couchdb'
+
+  databaseCleaner.clean(database, callback);
 }
 
 module.exports = new Dependencies();

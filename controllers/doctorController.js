@@ -3,6 +3,7 @@ var router = express.Router();
 var doctorSchema = require('../models/doctorModel.js');
 var loggedInDoctor = require('../src/doctor.js');
 
+
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
