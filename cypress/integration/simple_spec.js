@@ -69,3 +69,15 @@ describe('Pharmacist register button', function() {
     cy.url().should('include', '/pharmacist/new_registration')
   });
 });
+
+describe('Register doctor', function() {
+  it("clicking 'register' navigates to a new url", function() {
+    cy.visit('localhost:9000/doctor/new_registration')
+    cy.get('#fullName').type('G')
+    cy.get('#ID').type('b')
+    cy.get('#password').type('777')
+    cy.get('#confirm_password').type('777')
+    cy.contains('register').click()
+    cy.url().should('include', '/doctor/add_prescription')
+  })
+})
