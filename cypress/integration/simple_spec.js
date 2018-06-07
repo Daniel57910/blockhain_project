@@ -51,3 +51,21 @@ describe('Patient register button', function() {
     cy.url().should('include', '/patient/new_registration')
   });
 });
+
+describe('Pharmacist sign in button', function() {
+  it("clicking 'Sign In' navigates to a new url", function() {
+    cy.visit('localhost:9000')
+
+    cy.get('#pharmacist_sign_in').contains('Sign In').click()
+    cy.url().should('include', '/pharmacist/sign_in')
+  });
+});
+
+describe('Pharmacist register button', function() {
+  it("clicking 'Register' navigates to a new url", function() {
+    cy.visit('localhost:9000')
+
+    cy.get('#pharmacist_sign_up').contains('Register').click()
+    cy.url().should('include', '/pharmacist/new_registration')
+  });
+});

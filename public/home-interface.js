@@ -14,9 +14,9 @@ $("#patient_sign_up").click(function() {
 });
 
 $("#pharmacist_sign_in").click(function() {
-  window.location.href = '/sign-in-pharmacist';
+  window.location.href = '/pharmacist/sign_in';
 });
 $("#pharmacist_sign_up").click(function() {
- window.location.href = '/sign-up-pharmacist';
+ window.location.href = '/pharmacist/new_registration';
 });
 });
